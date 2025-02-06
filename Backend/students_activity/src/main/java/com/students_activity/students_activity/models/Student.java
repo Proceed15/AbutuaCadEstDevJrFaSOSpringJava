@@ -1,5 +1,3 @@
 package com.students_activity.students_activity.models;
 
-public class Student {
-    
-}
+public class Student {}

@@ -1,5 +1,3 @@
 package com.students_activity.students_activity.resources;
 
-public class StudentController {
-    
-}
+public class StudentController {}
