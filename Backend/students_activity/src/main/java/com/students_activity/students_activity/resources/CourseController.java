@@ -33,8 +33,8 @@ public class CourseController {
     public void init() {
         //SI
     }
-    @GetMapping("students")
-    public List<Course> getCategories(){
+    @GetMapping("courses")
+    public List<Course> getCourses(){
         return courses;
     }
     public ResponseEntity<Course> getCourse(@PathVariable int id){

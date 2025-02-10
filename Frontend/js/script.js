@@ -5,13 +5,13 @@ function convertToNumber(priceFormat){
     return priceFormat.replace(/\./g, '').replace(',', '.');
 }
 
-var products = [
+var students = [
     {
         id: 1,
         name: "Computador M1-TX",
         description: "Intel I7, 16GB, SSD 256, HD 1T",
         price: 4900,
-        category: 1,
+        course: 1,
         promotion: true,
         new: true
     },
@@ -20,7 +20,7 @@ var products = [
         name: "Computador M2-TX",
         description: "Intel I7, 32GB, SSD 512, HD 1T",
         price: 5900,
-        category: 2,
+        course: 2,
         promotion: false,
         new: true
     },
@@ -29,89 +29,89 @@ var products = [
         name: "Computador M1-T",
         description: "Intel I5, 16GB, HD 1T",
         price: 2900,
-        category: 3,
+        course: 3,
         promotion: false,
         new: false
     },
 ];
 
-var categories = [
+var courses = [
     { id: 1, name: "Produção Própria" },
     { id: 2, name: "Nacional" },
     { id: 3, name: "Importado" }
 ];
 
 //OnLoad
-loadProducts();
+loadstudents();
 
-//Load all products
-function loadProducts() {
-    for (let prod of products) {
-        addNewRow(prod);
+//Load all students
+function loadstudents() {
+    for (let std of students) {
+        addNewRow(std);
     }
 }
 
-//save a product
+//save a stduct
 function save() {
 
-    var prod = {
-        id: products.length + 1,
+    var std = {
+        id: students.length + 1,
         name: document.getElementById("inputName").value,
         description: document.getElementById("inputDescription").value,
         price: convertToNumber(document.getElementById("inputPrice").value),
-        category: document.getElementById("selectCategory").value,
+        course: document.getElementById("selectcourse").value,
         promotion: document.getElementById("checkBoxPromotion").checked,
-        new: document.getElementById("checkBoxNewProduct").checked
+        new: document.getElementById("checkBoxNewstduct").checked
     };
 
-    addNewRow(prod);
-    products.push(prod);
+    addNewRow(std);
+    students.push(std);
 
-    document.getElementById("formProduct").reset();
+    document.getElementById("formStudent").reset();
 
 }
 
 
 //Add new Row
-function addNewRow(prod) {
-    var table = document.getElementById("productsTable");
+function addNewRow(std) {
+    var table = document.getElementById("studentsTable");
 
     var newRow = table.insertRow();
 
-    //Insert product id
-    var idNode = document.createTextNode(prod.id);
+    //Insert stduct id
+    var idNode = document.createTextNode(std.id);
     newRow.insertCell().appendChild(idNode);
 
-    //Insert product name
-    var nameNode = document.createTextNode(prod.name);
+    //Insert stduct name
+    var nameNode = document.createTextNode(std.name);
     newRow.insertCell().appendChild(nameNode);
 
-    //Insert product description
-    var descriptionNode = document.createTextNode(prod.description);
+    //Insert stduct description
+    var descriptionNode = document.createTextNode(std.description);
     var cell = newRow.insertCell();
     cell.className="d-none d-md-table-cell";
     cell.appendChild(descriptionNode);
 
-    //Insert product price
+    //Insert stduct price
     var formatter = new Intl.NumberFormat("pt-BR", {
         style: "currency",
         currency: "BRL",
     });
 
-    var priceNode = document.createTextNode(formatter.format(prod.price));
+    var priceNode = document.createTextNode(formatter.format(std.price));
     newRow.insertCell().appendChild(priceNode);
 
-    //Insert product category
-    var categoryNode = document.createTextNode(categories[prod.category - 1].name);
-    newRow.insertCell().appendChild(categoryNode);
+    //Insert stduct course
+    var courseNode = document.createTextNode(courses[std.course - 1].name);
+    newRow.insertCell().appendChild(courseNode);
 
-    //Insert product options
+    //Insert stduct options
     var options = "";
-    if (prod.promotion) {
+    if (std.promotion) {
         options = "<span class='badge bg-success me-1'>P</span>";
     }
 
-    if (prod.new) {
+    if (std.new) {
         options += "<span class='badge bg-primary'>L</span>";
     }
 

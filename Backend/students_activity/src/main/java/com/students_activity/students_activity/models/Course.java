@@ -4,13 +4,13 @@ public class Course {
     //Atributos
     private int id;
     private String name;
-    private int period;
+    private int classes;
 
     //Métodos Contrutores
-    public Course(int id, String name, int period) {
+    public Course(int id, String name, int classes) {
         this.id = id;
         this.name = name;
-        this.period = period;
+        this.classes = classes;
     }
 
     public Course(){
@@ -34,11 +34,13 @@ public class Course {
         this.name = name;
     }
 
-    public int getPeriod() {
-        return period;
+    public int getClasses() {
+        return classes;
     }
 
-    public void setPeriod(int period) {
-        this.period = period;
+    public void setClasses(int classes) {
+        this.classes = classes;
     }
+
+    
 }
