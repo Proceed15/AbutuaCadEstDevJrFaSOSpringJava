@@ -78,6 +78,27 @@ public class StudentController {
         S1.setEmail("j23@gmail.com");
         S1.setIdCourse(7);
         S1.setClasses(7);
+        Student S8 = new Student(8, "J", "888", "j23@gmail.com", 8, 8);
+        S1.setId(8);
+        S1.setName("J");
+        S1.setPhone("888");
+        S1.setEmail("j23@gmail.com");
+        S1.setIdCourse(8);
+        S1.setClasses(8);
+        Student S9 = new Student(9, "J", "999", "j23@gmail.com", 9, 9);
+        S1.setId(9);
+        S1.setName("J");
+        S1.setPhone("999");
+        S1.setEmail("j23@gmail.com");
+        S1.setIdCourse(9);
+        S1.setClasses(9);
+        Student S10 = new Student(10, "J", "1111", "j23@gmail.com", 10, 10);
+        S1.setId(10);
+        S1.setName("J");
+        S1.setPhone("1111");
+        S1.setEmail("j23@gmail.com");
+        S1.setIdCourse(10);
+        S1.setClasses(10);
 
         students.add(S1);
         students.add(S2);
@@ -86,6 +107,9 @@ public class StudentController {
         students.add(S5);
         students.add(S6);
         students.add(S7);
+        students.add(S8);
+        students.add(S9);
+        students.add(S10);
     }
     @PostMapping("students")
     public ResponseEntity<Student>save(@RequestBody Student student) {

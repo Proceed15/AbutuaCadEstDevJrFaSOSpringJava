@@ -27,7 +27,10 @@ public class CourseController {
         new Course(4, "Administração", 4),
         new Course(5, "Física", 5),
         new Course(6, "Idéias", 6),
-        new Course(7, "Música", 7));
+        new Course(7, "Música", 7),
+        new Course(8, "Medicina", 8),
+        new Course(9, "Sistemas da Informação", 9),
+        new Course(10, "Linguagens", 10));
 
     @PostConstruct
     public void init() {
