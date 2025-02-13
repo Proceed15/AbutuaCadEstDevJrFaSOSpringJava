@@ -1,16 +1,16 @@
 //Masks
-$("#inputPrice").mask("000.000.000.000.000,00", { reverse: true });
+$("#inputPhone").mask("000.000.000.000.000,00", { reverse: true });
 
-function convertToNumber(priceFormat){
-    return priceFormat.replace(/\./g, '').replace(',', '.');
+function convertToNumber(phoneFormat){
+    return phoneFormat.replace(/\./g, '').replace(',', '.');
 }
 
 var students = [
     {
         id: 1,
         name: "Computador M1-TX",
-        description: "Intel I7, 16GB, SSD 256, HD 1T",
-        price: 4900,
+        email: "Intel I7, 16GB, SSD 256, HD 1T",
+        phone: 4900,
         course: 1,
         promotion: true,
         new: true
@@ -18,8 +18,8 @@ var students = [
     {
         id: 2,
         name: "Computador M2-TX",
-        description: "Intel I7, 32GB, SSD 512, HD 1T",
-        price: 5900,
+        email: "Intel I7, 32GB, SSD 512, HD 1T",
+        phone: 5900,
         course: 2,
         promotion: false,
         new: true
@@ -27,8 +27,8 @@ var students = [
     {
         id: 3,
         name: "Computador M1-T",
-        description: "Intel I5, 16GB, HD 1T",
-        price: 2900,
+        email: "Intel I5, 16GB, HD 1T",
+        phone: 2900,
         course: 3,
         promotion: false,
         new: false
@@ -57,9 +57,9 @@ function save() {
     var std = {
         id: students.length + 1,
         name: document.getElementById("inputName").value,
-        description: document.getElementById("inputDescription").value,
-        price: convertToNumber(document.getElementById("inputPrice").value),
-        course: document.getElementById("selectcourse").value,
+        email: document.getElementById("inputEmail").value,
+        phone: convertToNumber(document.getElementById("inputPhone").value),
+        course: document.getElementById("selectCourse").value,
         promotion: document.getElementById("checkBoxPromotion").checked,
         new: document.getElementById("checkBoxNewstudent").checked
     };
@@ -86,20 +86,20 @@ function addNewRow(std) {
     var nameNode = document.createTextNode(std.name);
     newRow.insertCell().appendChild(nameNode);
 
-    //Insert student description
-    var descriptionNode = document.createTextNode(std.description);
+    //Insert student email
+    var emailNode = document.createTextNode(std.email);
     var cell = newRow.insertCell();
     cell.className="d-none d-md-table-cell";
-    cell.appendChild(descriptionNode);
+    cell.appendChild(emailNode);
 
-    //Insert student price
+    //Insert student phone
     var formatter = new Intl.NumberFormat("pt-BR", {
         style: "currency",
         currency: "BRL",
     });
 
-    var priceNode = document.createTextNode(formatter.format(std.price));
-    newRow.insertCell().appendChild(priceNode);
+    var phoneNode = document.createTextNode(formatter.format(std.phone));
+    newRow.insertCell().appendChild(phoneNode);
 
     //Insert student course
     var courseNode = document.createTextNode(courses[std.course - 1].name);

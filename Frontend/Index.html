@@ -15,7 +15,7 @@
     <main class="container mt-3">
         <section>
             <div class="display-6">
-                Formulário de Cadastro:
+                Formulário para Cadastro:
             </div>
 
             <div class="row">
@@ -28,38 +28,38 @@
                             </div>
                         </div>
                         <div class="row mb-3 mt-3">
-                            <label for="inputDescription" class="col-sm-2 col-form-label">Descrição:</label>
+                            <label for="inputEmail" class="col-sm-2 col-form-label">Email:</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="inputDescription" required>
+                                <input type="text" class="form-control" id="inputEmail" required>
                             </div>
                         </div>
                         <div class="row mb-3 mt-3">
-                            <label for="inputPrice" class="col-sm-2 col-form-label">Preço</label>
+                            <label for="inputPhone" class="col-sm-2 col-form-label">Número Celular</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control" id="inputPrice" required>
+                                <input type="text" class="form-control" id="inputPhone" required>
                             </div>
 
-                            <label for="selectcourse" class="col-sm-2 col-form-label">Curso:</label>
+                            <label for="selectCourse" class="col-sm-2 col-form-label">Curso:</label>
                             <div class="col-sm-4">
-                                <select class="form-select" aria-label="Selecione uma categoria" id="selectcourse" required>
+                                <select class="form-select" aria-label="Selecione uma Curso" id="selectCourse" required>
                                     <option value="" selected>Escolha:</option>
-                                    <!--Seleção das categorias funcionando a partir das existentes no Backend Java-->
+                                    <!--Seleção para Cursos funcionando a partir das existentes no Backend Java-->
                                 </select>
                             </div>
                         </div>
                         <div class="row mb-3 mt-3">
-                            <label class="col-sm-2 col-form-label">Opções:>
+                            <label class="col-sm-2 col-form-label">Opções:
                             <div class="col-sm-4">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" value="" id="checkBoxPromotion" required>
                                     <label class="form-check-label" for="checkBoxPromotion">
-                                        Promoção
+                                        Classes
                                     </label>
                                 </div>   
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" value="" id="checkBoxNewProduct" required>
                                     <label class="form-check-label" for="checkBoxNewProduct">
-                                        Lançamento
+                                        Período
                                     </label>
                                 </div>                           
                             </div>
@@ -85,9 +85,9 @@
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Nome</th>
-                                <th scope="col" class="d-none d-md-table-cell">Descrição</th>
-                                <th scope="col">Preço</th>
-                                <th scope="col">Categoria</th>
+                                <th scope="col" class="d-none d-md-table-cell">Email</th>
+                                <th scope="col">Número Celular</th>
+                                <th scope="col">Curso</th>
                                 <th scope="col" class="d-none d-md-table-cell">Opções</th>
                             </tr>
                         </thead>
