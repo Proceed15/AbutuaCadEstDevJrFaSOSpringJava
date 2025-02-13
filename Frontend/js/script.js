@@ -51,7 +51,7 @@ function loadstudents() {
     }
 }
 
-//save a stduct
+//save a student
 function save() {
 
     var std = {
@@ -61,7 +61,7 @@ function save() {
         price: convertToNumber(document.getElementById("inputPrice").value),
         course: document.getElementById("selectcourse").value,
         promotion: document.getElementById("checkBoxPromotion").checked,
-        new: document.getElementById("checkBoxNewstduct").checked
+        new: document.getElementById("checkBoxNewstudent").checked
     };
 
     addNewRow(std);
@@ -78,21 +78,21 @@ function addNewRow(std) {
 
     var newRow = table.insertRow();
 
-    //Insert stduct id
+    //Insert student id
     var idNode = document.createTextNode(std.id);
     newRow.insertCell().appendChild(idNode);
 
-    //Insert stduct name
+    //Insert student name
     var nameNode = document.createTextNode(std.name);
     newRow.insertCell().appendChild(nameNode);
 
-    //Insert stduct description
+    //Insert student description
     var descriptionNode = document.createTextNode(std.description);
     var cell = newRow.insertCell();
     cell.className="d-none d-md-table-cell";
     cell.appendChild(descriptionNode);
 
-    //Insert stduct price
+    //Insert student price
     var formatter = new Intl.NumberFormat("pt-BR", {
         style: "currency",
         currency: "BRL",
@@ -101,11 +101,11 @@ function addNewRow(std) {
     var priceNode = document.createTextNode(formatter.format(std.price));
     newRow.insertCell().appendChild(priceNode);
 
-    //Insert stduct course
+    //Insert student course
     var courseNode = document.createTextNode(courses[std.course - 1].name);
     newRow.insertCell().appendChild(courseNode);
 
-    //Insert stduct options
+    //Insert student options
     var options = "";
     if (std.promotion) {
         options = "<span class='badge bg-success me-1'>P</span>";
