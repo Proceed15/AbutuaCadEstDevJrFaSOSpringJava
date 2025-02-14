@@ -14,7 +14,7 @@ import com.students_activity.students_activity.models.Course;
 import jakarta.annotation.PostConstruct;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
+//import org.springframework.web.bind.annotation.RequestParam;
 
 
 @RestController
@@ -40,12 +40,13 @@ public class CourseController {
     public List<Course> getCourses(){
         return courses;
     }
+    @GetMapping("courses/{id}")
     public ResponseEntity<Course> getCourse(@PathVariable int id){
-        Course cs = courses.stream()
+        Course css = courses.stream()
         .filter(s -> s.getId() == id)
         .findFirst()
         .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Course Not Found"));
 
-        return ResponseEntity.ok(cs);
+        return ResponseEntity.ok(css);
     }
 }

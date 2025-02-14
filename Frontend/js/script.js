@@ -1,10 +1,14 @@
 //Masks
+/*
 $("#inputPhone").mask("000.000.000.000.000,00", { reverse: true });
 
 function convertToNumber(phoneFormat){
     return phoneFormat.replace(/\./g, '').replace(',', '.');
 }
-
+    */
+var students = [];
+var course = [];
+/*
 var students = [
     {
         id: 1,
@@ -40,20 +44,40 @@ var courses = [
     { id: 2, name: "Nacional" },
     { id: 3, name: "Importado" }
 ];
+*/
 
 //OnLoad
-loadstudents();
+loadStudents();
+loadCourses();
+
+//Load all courses
+function loadCourses(){
+    //Requisição e Respostas
+    $.ajax({url:"http://localhost:8080/courses",
+        type: "GET",
+        async: false,
+        success: (response) => {
+            courses = response;
+            for (var css of courses) {
+                //Mostra as Opções do Escolha pelo id, aparecendo 1:1 para cada id e curso, 1 opção por curso
+                document.getElementById("selectCourse").innerHTML += `<option value=${css.id}>${css.name}</option>`;
+            }
+        }
+    })
+}
 
 //Load all students
-function loadstudents() {
-    for (let std of students) {
-        addNewRow(std);
-    }
+function loadStudents() {
+    $.getJSON("http://localhost:8080/students", (response) => {
+        students = response;
+        for (let std of students) {
+            addNewRow(std);
+        }
+    });
 }
 
 //save a student
 function save() {
-
     var std = {
         id: students.length + 1,
         name: document.getElementById("inputName").value,
@@ -64,6 +88,9 @@ function save() {
         new: document.getElementById("checkBoxNewstudent").checked
     };
 
+
+
+    //Add new Row
     addNewRow(std);
     students.push(std);
 
@@ -93,17 +120,23 @@ function addNewRow(std) {
     cell.appendChild(emailNode);
 
     //Insert student phone
+    /*
     var formatter = new Intl.NumberFormat("pt-BR", {
         style: "currency",
         currency: "BRL",
     });
-
-    var phoneNode = document.createTextNode(formatter.format(std.phone));
+    */
+    //formatter.format(std.phone)
+    var phoneNode = document.createTextNode(std.phone);
     newRow.insertCell().appendChild(phoneNode);
 
-    //Insert student course
-    var courseNode = document.createTextNode(courses[std.course - 1].name);
+    //Insert student course name
+    var courseNode = document.createTextNode(courses[std.idCourse - 1].name);
     newRow.insertCell().appendChild(courseNode);
+
+    //Insert student course number of classes
+    var cssClassesNode = document.createTextNode(courses[std.idCourse - 1].classes);
+    newRow.insertCell().appendChild(cssClassesNode);
 
     //Insert student options
     var options = "";

@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import jakarta.annotation.PostConstruct;
-import org.springframework.web.bind.annotation.RequestParam;
+//import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -125,6 +125,8 @@ public class StudentController {
 
         return ResponseEntity.created(location).body(student);
     }
+
+    //Estudantes por ID
     
     @GetMapping("students/{id}")
     public ResponseEntity<Student> getStudent(@PathVariable int id){
