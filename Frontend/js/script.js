@@ -84,12 +84,17 @@ function save() {
         email: document.getElementById("inputEmail").value,
         phone: convertToNumber(document.getElementById("inputPhone").value),
         course: document.getElementById("selectCourse").value,
+        period: document.getElementById("InformPeriod").value
+        /*
         promotion: document.getElementById("checkBoxPromotion").checked,
         new: document.getElementById("checkBoxNewstudent").checked
+        */
     };
 
 
 
+    //Ajustando a função Save para se adequar ao corpo da requisição via Http
+    $.ajax({url:"http://localhost:8080/products", type: "POST", async: false, contentType: 'application/json; charset=utf-8', dataType: 'json', data: JSON.stringify(std), success: (student) => { addNewRow(student); students.push(student); document.getElementById("formStudent").reset();},});
     //Add new Row
     addNewRow(std);
     students.push(std);
@@ -134,11 +139,16 @@ function addNewRow(std) {
     var courseNode = document.createTextNode(courses[std.idCourse - 1].name);
     newRow.insertCell().appendChild(courseNode);
 
+    //Informing the Period
+    var periodNode = document.createTextNode(std.period);
+    newRow.insertCell().appendChild(periodNode);
+
     //Insert student course number of classes
     var cssClassesNode = document.createTextNode(courses[std.idCourse - 1].classes);
     newRow.insertCell().appendChild(cssClassesNode);
 
     //Insert student options
+    /*
     var options = "";
     if (std.promotion) {
         options = "<span class='badge bg-success me-1'>P</span>";
@@ -147,11 +157,12 @@ function addNewRow(std) {
     if (std.new) {
         options += "<span class='badge bg-primary'>L</span>";
     }
+    */
 
     //Criação de nova Célula na Tabela de Estudantes
     cell = newRow.insertCell();
     cell.className="d-none d-md-table-cell";
-    cell.innerHTML = options;
+    //cell.innerHTML = options;
 
 }
 
