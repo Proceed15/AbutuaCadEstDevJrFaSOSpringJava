@@ -148,6 +148,7 @@ function addNewRow(std) {
         options += "<span class='badge bg-primary'>L</span>";
     }
 
+    //Criação de nova Célula na Tabela de Estudantes
     cell = newRow.insertCell();
     cell.className="d-none d-md-table-cell";
     cell.innerHTML = options;
