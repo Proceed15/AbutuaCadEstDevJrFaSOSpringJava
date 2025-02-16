@@ -8,18 +8,16 @@ public class Student {
     private String email;
     private int idCourse;
     private int period;
-    private int classes;
 
     //Métodos Construtores
 
-    public Student (int id, String name, String phone, String email, int idCourse, int period, int classes){
+    public Student (int id, String name, String phone, String email, int idCourse, int period){
         this.id = id;
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.idCourse = idCourse;
         this.period = period;
-        this.classes = classes;
     }
 
     public Student (){
@@ -64,14 +62,6 @@ public class Student {
     }
     public void setIdCourse(int idCourse) {
         this.idCourse = idCourse;
-    }
-
-    public int getClasses() {
-        return classes;
-    }
-
-    public void setClasses(int classes) {
-        this.classes = classes;
     }
     
 }

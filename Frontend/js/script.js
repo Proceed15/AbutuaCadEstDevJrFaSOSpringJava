@@ -50,7 +50,7 @@ var courses = [
 loadStudents();
 loadCourses();
 
-//Load all courses
+//Load all Courses
 function loadCourses(){
     //Requisição e Respostas
     $.ajax({url:"http://localhost:8080/courses",
@@ -66,23 +66,23 @@ function loadCourses(){
     })
 }
 
-//Load all students
+//Load all Students
 function loadStudents() {
     $.getJSON("http://localhost:8080/students", (response) => {
         students = response;
-        for (let std of students) {
+        for (let std of response) {
             addNewRow(std);
         }
     });
 }
 
-//save a student
+//Save a New Student
 function save() {
     var std = {
         id: students.length + 1,
         name: document.getElementById("inputName").value,
         email: document.getElementById("inputEmail").value,
-        phone: convertToNumber(document.getElementById("inputPhone").value),
+        phone: document.getElementById("inputPhone").value,
         course: document.getElementById("selectCourse").value,
         period: document.getElementById("InformPeriod").value
         /*
@@ -94,7 +94,12 @@ function save() {
 
 
     //Ajustando a função Save para se adequar ao corpo da requisição via Http
-    $.ajax({url:"http://localhost:8080/products", type: "POST", async: false, contentType: 'application/json; charset=utf-8', dataType: 'json', data: JSON.stringify(std), success: (student) => { addNewRow(student); students.push(student); document.getElementById("formStudent").reset();},});
+    $.ajax({url:"http://localhost:8080/students", 
+    type: "POST", 
+    async: false, 
+    contentType: 'application/json; charset=utf-8', 
+    dataType: 'json', data: JSON.stringify(std), 
+    success: (student) => { addNewRow(student); students.push(student); document.getElementById("formStudent").reset();},});
     //Add new Row
     addNewRow(std);
     students.push(std);
