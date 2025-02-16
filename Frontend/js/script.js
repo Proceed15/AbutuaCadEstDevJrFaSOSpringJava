@@ -77,7 +77,7 @@ function loadStudents() {
 }
 
 //Save a New Student
-function Save() {
+function save() {
     var std = {
         id: students.length + 1,
         name: document.getElementById("inputName").value,
@@ -99,13 +99,16 @@ function Save() {
     async: false, 
     contentType: 'application/json; charset=utf-8', 
     dataType: 'json', data: JSON.stringify(std), 
-    success: (student) => { addNewRow(student); students.push(student); document.getElementById("formStudent").reset();},});
+    success: 
+    (student) => { addNewRow(student); students.push(student); 
+        document.getElementById("formStudent").reset();},});
+    /*
     //Add new Row
-    addNewRow(std);
-    students.push(std);
-
+    addNewRow(student);
+    students.push(student);
+    //This line below reset the fields inside the provided formulary
     document.getElementById("formStudent").reset();
-
+    */
 }
 
 
@@ -141,13 +144,13 @@ function addNewRow(std) {
     var phoneNode = document.createTextNode(std.phone);
     newRow.insertCell().appendChild(phoneNode);
 
-    //Insert Student Course Name
-    var courseNode = document.createTextNode(courses[std.idCourse - 1].name);
-    newRow.insertCell().appendChild(courseNode);
-
     //Informing the Period
     var periodNode = document.createTextNode(std.period);
     newRow.insertCell().appendChild(periodNode);
+
+    //Insert Student Course Name
+    var courseNode = document.createTextNode(courses[std.idCourse - 1].name);
+    newRow.insertCell().appendChild(courseNode);
 
     //Insert Student Course Number of Classes
     var cssClassesNode = document.createTextNode(courses[std.idCourse - 1].classes);

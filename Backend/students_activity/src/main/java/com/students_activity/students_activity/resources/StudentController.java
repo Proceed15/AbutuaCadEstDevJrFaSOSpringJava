@@ -29,6 +29,7 @@ public class StudentController {
     private List<Student> students = new ArrayList<>();
     @PostConstruct
     public void init(){
+        /*
         Student S1 = new Student(1, "J", "444", "j23@gmail.com", 1, 3);
         S1.setId(1);
         S1.setName("J");
@@ -110,6 +111,7 @@ public class StudentController {
         students.add(S8);
         students.add(S9);
         students.add(S10);
+        */
     }
     @PostMapping("students")
     public ResponseEntity<Student>save(@RequestBody Student student) {
