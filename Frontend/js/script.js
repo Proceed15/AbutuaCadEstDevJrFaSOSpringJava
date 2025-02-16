@@ -77,7 +77,7 @@ function loadStudents() {
 }
 
 //Save a New Student
-function save() {
+function Save() {
     var std = {
         id: students.length + 1,
         name: document.getElementById("inputName").value,
@@ -109,27 +109,27 @@ function save() {
 }
 
 
-//Add new Row
+//Add New Row
 function addNewRow(std) {
     var table = document.getElementById("studentsTable");
 
     var newRow = table.insertRow();
 
-    //Insert student id
+    //Insert Student Id
     var idNode = document.createTextNode(std.id);
     newRow.insertCell().appendChild(idNode);
 
-    //Insert student name
+    //Insert Student Name
     var nameNode = document.createTextNode(std.name);
     newRow.insertCell().appendChild(nameNode);
 
-    //Insert student email
+    //Insert Student Email
     var emailNode = document.createTextNode(std.email);
     var cell = newRow.insertCell();
     cell.className="d-none d-md-table-cell";
     cell.appendChild(emailNode);
 
-    //Insert student phone
+    
     /*
     var formatter = new Intl.NumberFormat("pt-BR", {
         style: "currency",
@@ -137,10 +137,11 @@ function addNewRow(std) {
     });
     */
     //formatter.format(std.phone)
+    //Insert Student Phone
     var phoneNode = document.createTextNode(std.phone);
     newRow.insertCell().appendChild(phoneNode);
 
-    //Insert student course name
+    //Insert Student Course Name
     var courseNode = document.createTextNode(courses[std.idCourse - 1].name);
     newRow.insertCell().appendChild(courseNode);
 
@@ -148,7 +149,7 @@ function addNewRow(std) {
     var periodNode = document.createTextNode(std.period);
     newRow.insertCell().appendChild(periodNode);
 
-    //Insert student course number of classes
+    //Insert Student Course Number of Classes
     var cssClassesNode = document.createTextNode(courses[std.idCourse - 1].classes);
     newRow.insertCell().appendChild(cssClassesNode);
 
