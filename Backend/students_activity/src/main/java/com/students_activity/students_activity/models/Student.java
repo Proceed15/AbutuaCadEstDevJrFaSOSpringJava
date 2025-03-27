@@ -23,15 +23,6 @@ public class Student {
     public Student (){
         //Método Acessível Agora
     }
-
-    public int getPeriod() {
-        return period;
-    }
-
-    public void setPeriod(int period) {
-        this.period = period;
-    }
-
     //Métodos Getters e Setters
     public int getId() {
         return id;
@@ -63,5 +54,11 @@ public class Student {
     public void setIdCourse(int idCourse) {
         this.idCourse = idCourse;
     }
-    
+    public int getPeriod() {
+        return period;
+    }
+
+    public void setPeriod(int period) {
+        this.period = period;
+    }
 }
